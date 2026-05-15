@@ -7,15 +7,15 @@ em Recuperação (nota entre 5 e 6.9) ou Reprovado (nota menor que 5).
 const prompt = require("prompt-sync")();
 let grade = Number(prompt("Digite a nota: "));
 
-function isTheStudentsGrade(grade){
-  if (grade >= 7 && grade <=10) {
-    return ("Aluno aprovado!")
-  } else if (grade > 5 && grade < 7){
-    return ("Aluno de recuperação!")
-  }else if(grade > 0 && grade < 5){
-    return ("Aluno reprovado!");
-  }else{
-    return ("Nota inválida!");    
+function isTheStudentsGrade(grade) {
+  if (grade < 0 || grade > 10) {
+    return "Nota inválida!";
+  } else if (grade >= 7) {
+    return "Aluno aprovado!";
+  } else if (grade >= 5) {
+    return "Aluno de recuperação!";
+  } else {
+    return "Aluno reprovado!";
   }
 }
 const studentGradeResult = isTheStudentsGrade(grade);
