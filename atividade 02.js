@@ -5,21 +5,24 @@ adolescente (de 13 a 17 anos), adulta (de 18 a 59 anos) ou idosa
 (60 anos ou mais).
 */
 const prompt = require("prompt-sync")();
-const getYear = new Date().getFullYear()
-let yearOfBirth = Number(prompt("Digite seu ano de nascimento: "))
 
-function calculateAge(yearOfBirth){
-  const calculateAge = Number(getYear) - Number(yearOfBirth)
-  if (calculateAge >= 0 && calculateAge <= 12) {
-    return "Você é criança!"
-  }else if(calculateAge <= 17){
-    return "Você é adolescente!"
-  }else if(calculateAge <= 59){
-    return "Você é adulto!"
-  }else if(calculateAge >= 60){
-    return "Você é idoso!"
-  }else{
-    return "Ano inválido!"
+const currentYear = new Date().getFullYear();
+
+let yearOfBirth = Number(prompt("Digite seu ano de nascimento: "));
+
+function calculateAge(yearOfBirth) {
+  const age = currentYear - yearOfBirth;
+
+  if (age < 0) {
+    return "Ano inválido!";
+  } else if (age <= 12) {
+    return "Você é criança!";
+  } else if (age <= 17) {
+    return "Você é adolescente!";
+  } else if (age <= 59) {
+    return "Você é adulto!";
+  } else {
+    return "Você é idoso!";
   }
 }
 
