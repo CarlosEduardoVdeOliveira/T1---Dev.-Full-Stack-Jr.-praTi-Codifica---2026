@@ -276,8 +276,6 @@ pergunte ao usuário se o ano é bissexto e ajuste a quantidade de dias para 29
 caso seja.
 */
 
-const prompt = require("prompt-sync")();
-
 const numberMonth = Number(prompt("Digite o numero do mês: "));
 let bissexto = "";
 
