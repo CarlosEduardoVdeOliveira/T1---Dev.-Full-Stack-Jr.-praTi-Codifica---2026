@@ -7,12 +7,12 @@ recheada acrescenta R$ 8,00 em qualquer tamanho. Exiba o valor total do pedido.
 */
 const prompt = require("prompt-sync")();
 
-const tipoPizza = prompt("Digite o tamanho da pizza (P, M ou G): ");
-const tipoBorda = prompt("Digite o tipo de borda (tradicional ou recheada): ");
+const typePizza = prompt("Digite o tamanho da pizza (P, M ou G): ");
+const typeEdge = prompt("Digite o tipo de borda (tradicional ou recheada): ");
 
 let price = 0;
 
-switch (tipoPizza) {
+switch (typePizza) {
   case "P":
     price = 25;
     break;
@@ -30,9 +30,9 @@ switch (tipoPizza) {
     process.exit();
 }
 
-if (tipoBorda === "recheada") {
+if (typeEdge === "recheada") {
   price += 8;
-} else if (tipoBorda !== "tradicional") {
+} else if (typeEdge !== "tradicional") {
   console.log("Tipo de borda inválido!");
   process.exit();
 }
