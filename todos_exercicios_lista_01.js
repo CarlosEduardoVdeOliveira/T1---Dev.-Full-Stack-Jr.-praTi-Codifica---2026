@@ -1,5 +1,11 @@
-//Para rodar os programas instale o prompt-sync na mesma pasta do arquivo;
-//npm install prompt-sync ou npm i prompt-sync
+/*
+  Para rodar os programas instale o prompt-sync na mesma pasta do arquivo;
+ * npm install prompt-sync ou npm i prompt-sync
+*/
+/*
+Link do repositório no GitHub: 
+ * https://github.com/CarlosEduardoVdeOliveira/T1---Dev.-Full-Stack-Jr.-praTi-Codifica---2026/tree/main
+*/
 
 const prompt = require("prompt-sync")();
 /* 
