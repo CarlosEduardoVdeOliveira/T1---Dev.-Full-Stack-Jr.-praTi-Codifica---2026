@@ -27,6 +27,3 @@ function calculateAge(yearOfBirth) {
 }
 
 console.log(calculateAge(yearOfBirth));
-
-
-

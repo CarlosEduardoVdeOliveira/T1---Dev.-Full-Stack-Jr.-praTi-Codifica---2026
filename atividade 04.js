@@ -13,15 +13,17 @@ function whichIsTheLargestNumber(firstNumber, secondNumber, thirdNumber) {
   if (secondNumber >= larger) {
     larger = secondNumber;
   }
-  if(thirdNumber >= larger){
+  if (thirdNumber >= larger) {
     larger = thirdNumber;
   }
 
   return larger;
 }
 
-
-const largerNumber = whichIsTheLargestNumber(firstNumber, secondNumber, thirdNumber)
+const largerNumber = whichIsTheLargestNumber(
+  firstNumber,
+  secondNumber,
+  thirdNumber,
+);
 
 console.log("O maior número é: ", largerNumber);
-
