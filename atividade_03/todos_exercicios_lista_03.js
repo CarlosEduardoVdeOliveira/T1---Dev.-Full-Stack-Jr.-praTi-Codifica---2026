@@ -4,7 +4,8 @@
 */
 /*
 Link do repositório no GitHub: 
- * https://github.com/CarlosEduardoVdeOliveira/T1---Dev.-Full-Stack-Jr.-praTi-Codifica---2026/tree/main
+ *  * https://github.com/CarlosEduardoVdeOliveira/T1---Dev.-Full-Stack-Jr.-praTi-Codifica---2026/tree/main
+
 */
 
 const prompt = require("prompt-sync")();
