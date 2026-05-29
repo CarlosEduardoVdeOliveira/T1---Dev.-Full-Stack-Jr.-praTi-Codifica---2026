@@ -188,5 +188,168 @@ console.log(
   `aluno com menor nota: ${lowerGrade.name} nota: ${lowerGrade.note}`,
 );
 
+/*
+7. Simule um carrinho de compras: leia nomes e preços de produtos em
+um laço até o usuário digitar "sair". Armazene em arrays. 
+Ao final, liste todos os itens, exiba o subtotal, aplique 10% de 
+desconto se houver mais de 3 itens e mostre o total a pagar.
+*/
 
+const products = [];
 
+let option = "";
+
+while (option !== "sair") {
+  const product = prompt(
+    "Digite o nome do produto (ou 'sair'): ",
+  ).toLowerCase();
+
+  if (product === "sair") {
+    break;
+  }
+
+  const priceProduct = Number(prompt("Digite o preço do produto: "));
+
+  products.push({ name: product, price: priceProduct });
+}
+
+let subtotal = 0;
+
+console.log("\nProdutos:");
+
+for (const product of products) {
+  console.log(`${product.name} - R$ ${product.price.toFixed(2)}`);
+
+  subtotal += product.price;
+}
+
+let total = subtotal;
+
+if (products.length > 3) {
+  total -= total * 0.1;
+}
+
+console.log(`\nSubtotal: R$ ${subtotal.toFixed(2)}`);
+
+if (products.length > 3) {
+  console.log("Desconto aplicado: 10%");
+}
+
+console.log(`Total a pagar: R$ ${total.toFixed(2)}`);
+
+/*
+8. Leia uma palavra, armazene seus caracteres em um array e, 
+percorrendo-o de trás para frente com um laço for, monte a palavra
+invertida. Exiba a palavra original, a invertida e informe se ela
+é um palíndromo.
+*/
+
+const word = prompt("Digite uma palavra: ").toLowerCase();
+
+const arrayWord = [];
+for (const character of word) {
+  arrayWord.push(character);
+}
+console.log(arrayWord);
+
+let inverseWord = "";
+for (let i = arrayWord.length - 1; i >= 0; i--) {
+  inverseWord += arrayWord[i];
+}
+
+console.log(`Palavra original: ${word}`);
+console.log(`Palavra invertida: ${inverseWord}`);
+
+if (word === inverseWord) {
+  console.log(`A palavra ${word} é palíndroma.`);
+} else {
+  console.log(
+    `A palavra ${word} não é palíndroma, pois é diferente de ${inverseWord}`,
+  );
+}
+
+/*
+9. Sorteie um número entre 1 e 100 com Math.random(). Usando um laço
+do...while, peça ao usuário para adivinhar; a cada tentativa, diga
+se o número é maior ou menor. Registre as tentativas em um array e, 
+ao acertar, exiba o histórico e quantas tentativas foram necessárias.
+*/
+
+const randomNumber = Math.floor(Math.random() * 100) + 1;
+let numberTest = 0;
+
+const history = [];
+
+do {
+  numberTest = Number(prompt("Digite um número: "));
+
+  history.push(numberTest);
+
+  if (numberTest > randomNumber) {
+    console.log("O número secreto é menor!");
+  } else if (numberTest < randomNumber) {
+    console.log("O número secreto é maior!");
+  } else {
+    console.log(
+      `Parabéns! Você acertou o número ${randomNumber}`
+    );
+  }
+
+} while (numberTest !== randomNumber);
+
+console.log(`Tentativas necessárias: ${history.length}`);
+
+console.log("Histórico de tentativas:");
+
+for (const attempt of history) {
+  console.log(attempt);
+}
+
+/*
+10. Crie uma matriz 3×4 (3 alunos, 4 notas cada). Leia os valores
+via laços aninhados. Calcule e exiba a média de cada aluno, a média
+geral da turma e qual aluno teve o melhor desempenho.
+*/
+
+const classStudents = [
+  ["Lucas", 5, 7, 8, 7.8],
+  ["Yan", 8, 7, 9, 8.7],
+  ["João", 8.5, 8.8, 9, 9.3],
+];
+
+let totalNotes = 0;
+let totalValues = 0;
+
+let bestStudent = "";
+let bestAverage = 0;
+
+for (let i = 0; i < classStudents.length; i++) {
+
+  let sumStudent = 0;
+
+  for (let j = 1; j < classStudents[i].length; j++) {
+    sumStudent += classStudents[i][j];
+
+    totalValues += classStudents[i][j];
+    totalNotes++;
+  }
+
+  let averageStudent = sumStudent / 4;
+
+  console.log(
+    `Média do aluno ${classStudents[i][0]}: ${averageStudent.toFixed(2)}`
+  );
+
+  if (averageStudent > bestAverage) {
+    bestAverage = averageStudent;
+    bestStudent = classStudents[i][0];
+  }
+}
+
+let classAverage = totalValues / totalNotes;
+
+console.log(`\nMédia geral da turma: ${classAverage.toFixed(2)}`);
+
+console.log(
+  `Melhor aluno: ${bestStudent} (${bestAverage.toFixed(2)})`
+);
