@@ -4,361 +4,376 @@
 */
 /*
 Link do repositório no GitHub: 
- *  * https://github.com/CarlosEduardoVdeOliveira/T1---Dev.-Full-Stack-Jr.-praTi-Codifica---2026/tree/main
+ *  * https://github.com/CarlosEduardoVdeOliveira/T1---Dev.-Full-Stack-Jr.-praTi-Codifica---2026/tree/main/atividade_03
 
 */
 
 const prompt = require("prompt-sync")();
-/* 
-1. Escreva um programa que pergunte a nota de um aluno (de 0 a 10). 
-Exiba se o aluno foi Aprovado (nota maior ou igual a 7), 
-em Recuperação (nota entre 5 e 6.9) ou Reprovado (nota menor que 5).
-*/
 
-let grade = Number(prompt("Digite a nota: "));
+/*
+1. Crie um objeto representando um produto com as propriedades: nome, 
+preço, categoria e quantidade em estoque. Use for...in para 
+percorrer e exibir todas as propriedades e seus valores. 
+Em seguida, adicione uma nova propriedade desconto ao objeto e 
+exiba o preço final calculado.*/
 
-function isTheStudentsGrade(grade) {
-  if (grade < 0 || grade > 10) {
-    return "Nota inválida!";
-  } else if (grade >= 7) {
-    return "Aluno aprovado!";
-  } else if (grade >= 5) {
-    return "Aluno de recuperação!";
+const product = {
+  name: "Monitor",
+  price: 1655.99,
+  category: "Informática",
+  stock: 21,
+};
+
+for (const key in product) {
+  console.log(`${key}: ${product[key]}`);
+}
+
+product.discount = 10;
+
+const priceFinal = product.price - product.price * (product.discount / 100);
+
+console.log(`Preço com desconto: R$ ${priceFinal.toFixed(2)}`);
+
+/*
+2. Crie dois objetos representando personagens de um jogo, cada um 
+com as propriedades: nome, vida, ataque e defesa. Use for...in 
+para exibir os atributos de cada personagem lado a lado e determine
+qual deles tem maior poder total (soma de vida + ataque + defesa).*/
+
+const goku = {
+  name: "Goku",
+  life: 100,
+  attack: 15549,
+  defense: 8651,
+};
+
+const vegeta = {
+  name: "Vegeta",
+  life: 100,
+  attack: 15349,
+  defense: 8951,
+};
+
+for (const key in goku) {
+  console.log(
+    `${key}: Goku = ${goku[key]} | Vegeta = ${vegeta[key]}`
+  );
+}
+
+function calculatePower(character) {
+  return (
+    character.life +
+    character.attack +
+    character.defense
+  );
+}
+
+const p1 = calculatePower(goku);
+const p2 = calculatePower(vegeta);
+
+if (p1 > p2) {
+  console.log(`${goku.name} é o mais forte!`);
+} else if (p2 > p1) {
+  console.log(`${vegeta.name} é o mais forte!`);
+} else {
+  console.log(
+    `${goku.name} e ${vegeta.name} têm o mesmo poder!`
+  );
+}
+
+/*
+3. Crie um objeto representando um funcionário com nome, cargo, salário
+e anos de experiência. Use for...in para listar todos os dados. Com base
+nos anos de experiência, calcule e exiba o bônus anual: até 2 anos = 5%
+do salário, de 3 a 5 anos = 10%, acima de 5 anos = 15%.*/
+
+const employee = {
+  name: "Vanessa Santos",
+  position: "Recrutadora",
+  wage: 2500,
+  yearXp: 3.5,
+};
+
+for (const key in employee) {
+  console.log(`${key}: ${employee[key]}`);
+}
+
+function calculateBonus(salary, percentage) {
+  return salary * (percentage / 100);
+}
+
+if (employee.yearXp <= 2) {
+  console.log(`Bônus: R$ ${calculateBonus(employee.wage, 5).toFixed(2)}`);
+} else if (employee.yearXp <= 5) {
+  console.log(`Bônus: R$ ${calculateBonus(employee.wage, 10).toFixed(2)}`);
+} else if (employee.yearXp > 5) {
+  console.log(`Bônus: R$ ${calculateBonus(employee.wage, 15).toFixed(2)}`);
+} else {
+  console.log("Anos de experiência inválidos!");
+}
+
+/*
+4. Crie um objeto onde cada chave é o nome de um item e o valor é a 
+quantidade no inventário do jogador (ex: { espada: 1, poção: 5, 
+escudo: 2 }). Use for...in para listar o inventário completo. 
+Permita que o usuário informe um item para usar: reduza a quantidade
+em 1 ou exiba "item esgotado" se for zero.*/
+
+
+const inventario = {
+  espada: 1,
+  poção: 5,
+  escudo: 2,
+};
+for (const key in inventario) {
+  console.log(`${key} ${inventario[key]}`);
+}
+
+const item = prompt("Digite o item: ");
+
+if (inventario[item] === undefined) {
+  console.log("Item não existe no inventário!");
+} else if (inventario[item] > 0) {
+  inventario[item]--;
+  console.log(`${item} usado! Quantidade restante: ${inventario[item]}`);
+} else {
+  console.log(`${item}: Item esgotado!`);
+}
+
+
+/*
+5. Crie um objeto representando o orçamento mensal de uma pessoa, com
+categorias como alimentação, transporte, lazer e saúde, cada uma com valor
+planejado e valor gasto. Use for...in para percorrer as categorias e 
+exibir se cada uma ficou dentro ou acima do orçamento, e calcule o 
+saldo geral do mês.*/
+
+const budget = {
+  alimentation: {
+    planned: 800,
+    spent: 750,
+  },
+  transport: {
+    planned: 300,
+    spent: 350,
+  },
+  leisure: {
+    planned: 400,
+    spent: 500,
+  },
+  health: {
+    planned: 200,
+    spent: 150,
+  },
+}
+let plannedTotal = 0 
+let spentTotal = 0
+
+for (const key in budget) {
+  let balanceMouth = budget[key].planned - budget[key].spent
+  if(budget[key].planned >= budget[key].spent){
+    console.log(`${key}: Dentro do orçamento. Saldo: R$ ${balanceMouth}`);
+  }else{
+    console.log(`${key}: Fora do orçamento.Saldo: R$ ${balanceMouth}`);
+  }
+  plannedTotal += Number( budget[key].planned)
+  spentTotal += Number(budget[key].spent)
+}
+let balance = Number(plannedTotal - spentTotal)
+if (balance >= 0) {
+  console.log(`Dentro do orçamento do mês! Saldo: R$ ${balance.toFixed(2)}`);
+}else {
+  console.log(`Fora do orçamento do mês! Saldo: R$ ${balance.toFixed(2)}`);
+}
+
+/*
+6. Crie um array de objetos representando músicas, cada uma com título, 
+artista e duração em segundos. Use for...of para exibir cada música no
+formato "Artista — Título (mm:ss)". Ao final, use forEach para somar
+a duração total e exiba-a no mesmo formato.*/
+
+const musics = [
+  {
+    title: "Aerials",
+    artist: "System of a Down",
+    duration: 244,
+  },
+  {
+    title: "Iris",
+    artist: "Goo Goo Dolls",
+    duration: 342,
+  },
+  {
+    title: "One Last Breath",
+    artist: "Creed",
+    duration: 240,
+  },
+  {
+    title: "My Last Breath (with lyrics)",
+    artist: "Evanescence",
+    duration: 248,
+  },
+  {
+    title: "Máscara",
+    artist: "Pitty",
+    duration: 299,
+  },
+];
+
+for (const music of musics) {
+  const minutes = Math.trunc(music.duration / 60);
+  const seconds = music.duration % 60;
+
+  console.log(
+    `${music.artist} — ${music.title} (${minutes}:${seconds < 10 ? "0" + seconds : seconds})`,
+  );
+}
+
+let totalDuration = 0;
+
+musics.forEach((music) => {
+  totalDuration += music.duration;
+});
+
+const totalMinutes = Math.trunc(totalDuration / 60);
+const totalSeconds = totalDuration % 60;
+
+console.log(
+  `Tempo total: ${totalMinutes}:${totalSeconds < 10 ? "0" + totalSeconds : totalSeconds}`,
+);
+
+/*
+7. Crie um array de objetos com nome e nota de 6 alunos. Use for...of 
+para classificar cada aluno (Aprovado, Recuperação ou Reprovado) e 
+exibir o resultado. Use forEach para calcular e exibir separadamente
+a média dos aprovados e a média dos reprovados.*/
+
+const students = [
+  { name: "Lucas", grade: 8.5 },
+  { name: "Ana", grade: 5.2 },
+  { name: "João", grade: 4.8 },
+  { name: "Maria", grade: 6.5 },
+  { name: "Pedro", grade: 4.9 },
+  { name: "Luíza", grade: 9.5 },
+];
+
+for (const student of students) {
+  if (student.grade >= 7) {
+    console.log(
+      `Aluno ${student.name} - Aprovado. Nota: ${student.grade.toFixed(2)}`,
+    );
+  } else if (student.grade >= 5) {
+    console.log(
+      `Aluno ${student.name} - Recuperação. Nota: ${student.grade.toFixed(2)}`,
+    );
   } else {
-    return "Aluno reprovado!";
+    console.log(
+      `Aluno ${student.name} - Reprovado. Nota: ${student.grade.toFixed(2)}`,
+    );
   }
 }
-const studentGradeResult = isTheStudentsGrade(grade);
-console.log(studentGradeResult);
-
-/*
-2. Crie um programa que pergunte o ano de nascimento de uma pessoa e 
-calcule sua idade. Com base na idade, exiba se ela é criança (até 12 anos),
-adolescente (de 13 a 17 anos), adulta (de 18 a 59 anos) ou idosa 
-(60 anos ou mais).
-*/
-
-const currentYear = new Date().getFullYear();
-
-let yearOfBirth = Number(prompt("Digite seu ano de nascimento: "));
-
-function calculateAge(yearOfBirth) {
-  const age = currentYear - yearOfBirth;
-
-  if (age < 0) {
-    return "Ano inválido!";
-  } else if (age <= 12) {
-    return "Você é criança!";
-  } else if (age <= 17) {
-    return "Você é adolescente!";
-  } else if (age <= 59) {
-    return "Você é adulto!";
-  } else {
-    return "Você é idoso!";
+let totalApproved = 0;
+let approved = 0;
+let totalReproved = 0;
+let reproved = 0;
+students.forEach((student) => {
+  if (student.grade >= 7) {
+    totalApproved += Number(student.grade);
+    approved++;
+  } else if (student.grade < 5) {
+    totalReproved += Number(student.grade);
+    reproved++;
   }
-}
-
-console.log(calculateAge(yearOfBirth));
-
-/*
-3. Escreva um programa que pergunte o salário mensal de um funcionário e o
-percentual de aumento concedido pela empresa. Caso o salário seja menor que
-R$ 1.500,00, o percentual de aumento deve ser dobrado automaticamente. Exiba o
-novo salário do funcionário.
-*/
-
-const monthlySalary = Number(prompt("Qual atual salário: "));
-const percentageIncrease = Number(
-  prompt("Qual percentual de aumento (ex: 5, 10, 20): "),
+});
+console.log(
+  `Média dos aprovados: ${
+    approved > 0 ? (totalApproved / approved).toFixed(2) : "Nenhum"
+  }`,
+);
+console.log(
+  `Média dos reprovados: ${
+    reproved > 0 ? (totalReproved / reproved).toFixed(2) : "Nenhum"
+  }`,
 );
 
-function calculateTheNewSalary(monthlySalary, percentageIncrease) {
-  let convertToPercentage = percentageIncrease / 100;
-  if (monthlySalary <= 1500) {
-    convertToPercentage *= 2;
-  }
-  let newSalary = monthlySalary + monthlySalary * convertToPercentage;
-  return newSalary;
-}
-console.log(calculateTheNewSalary(monthlySalary, percentageIncrease));
 
 /*
-4. Crie um programa que leia três números inteiros e exiba o maior deles, sem
-utilizar funções prontas como Math.max().
-*/
+8. Crie um array de objetos representando produtos com nome, preço e
+quantidade. Use forEach para calcular o valor total em estoque de cada
+produto (preço × quantidade) e exibir um relatório. Ao final, exiba
+o valor total geral de todo o estoque.*/
 
-const firstNumber = Number(prompt("Digite primeiro número: "));
-const secondNumber = Number(prompt("Digite segundo número: "));
-const thirdNumber = Number(prompt("Digite terceiro número: "));
+const products = [
+  {
+    name: "Computador",
+    price: 26950.17,
+    qty: 3,
+  },
+  {
+    name: "Mouse",
+    price: 105.15,
+    qty: 10,
+  },
+  {
+    name: "Monitor",
+    price: 1586.09,
+    qty: 2,
+  },
+  {
+    name: "Teclado",
+    price: 255.98,
+    qty: 8,
+  },
+  {
+    name: "Webcam",
+    price: 325.64,
+    qty: 4,
+  },
+];
 
-function whichIsTheLargestNumber(firstNumber, secondNumber, thirdNumber) {
-  let larger = firstNumber;
-  if (secondNumber >= larger) {
-    larger = secondNumber;
-  }
-  if (thirdNumber >= larger) {
-    larger = thirdNumber;
-  }
-
-  return larger;
-}
-
-const largerNumber = whichIsTheLargestNumber(
-  firstNumber,
-  secondNumber,
-  thirdNumber,
-);
-
-console.log("O maior número é: ", largerNumber);
-
-/*
-5. Uma loja oferece desconto progressivo conforme o valor da compra. Faça um
-programa que leia o valor total de uma compra e aplique as seguintes regras:
-compras abaixo de R$ 100,00 não têm desconto; compras entre R$ 100,00 e R$
-299,99 recebem 10% de desconto; compras entre R$ 300,00 e R$ 499,99 recebem
-15% de desconto; compras acima de R$ 500,00 recebem 20% de desconto. Exiba o
-valor original, o desconto aplicado e o valor final a pagar.
-*/
-const totalPurchaseValue = Number(prompt("Digite o valor total da compra: "));
-
-function calculateTheFinalPurchasePrice(totalPurchaseValue) {
-  let percent = 0;
-  if (totalPurchaseValue >= 100 && totalPurchaseValue < 300) {
-    percent = 10;
-  } else if (totalPurchaseValue >= 300 && totalPurchaseValue < 500) {
-    percent = 15;
-  } else if (totalPurchaseValue >= 500) {
-    percent = 20;
-  }
-  const discount = totalPurchaseValue * (percent / 100);
-  const totalValue = totalPurchaseValue - discount;
-
-  return `Valor da compra: R$ ${totalPurchaseValue.toFixed(2)} \nDesconto: ${percent}% \nValor com desconto: R$ ${totalValue.toFixed(2)}`;
-}
-
-console.log(calculateTheFinalPurchasePrice(totalPurchaseValue));
-
-/*
-6. Crie um programa de caixa eletrônico simplificado. O usuário informa o 
-valor que deseja sacar (múltiplo de 10). O programa deve calcular e 
-exibir a menor quantidade possível de cédulas de R$ 100, R$ 50, R$ 20 
-e R$ 10 necessárias para compor o saque.
-*/
-
-const value = Number(
-  prompt("Digite o valor múltiplo de 10 (ex: 10, 20, 30): "),
-);
-
-function withdrawMoney(value) {
-  let newValue = value;
-  let div = 0;
-  let mod = 0;
-  let result = "";
-  if (value % 10 !== 0) {
-    return "Operação inválida!";
-  }
-  while (newValue > 0) {
-    if (newValue >= 100) {
-      mod = newValue % 100;
-      div = Math.trunc(newValue / 100);
-      newValue = mod;
-      result += `100: ${div} `;
-    } else if (newValue >= 50) {
-      mod = newValue % 50;
-      div = Math.trunc(newValue / 50);
-      newValue = mod;
-      result += `R$ 50: ${div} `;
-    } else if (newValue >= 20) {
-      mod = newValue % 20;
-      div = Math.trunc(newValue / 20);
-      newValue = mod;
-      result += `20: ${div} `;
-    } else if (newValue >= 10) {
-      mod = newValue % 10;
-      div = Math.trunc(newValue / 10);
-      newValue = mod;
-      result += `R$ 10: ${div} `;
-    }
-  }
-  return result;
-}
-console.log(withdrawMoney(value));
-
-/*
-7. Faça um programa que funcione como uma calculadora básica. Leia dois
-números e uma operação desejada (+, -, *, /). Usando switch case, realize a
-operação correspondente e exiba o resultado. Trate o caso de divisão por zero e
-de operação inválida.
-*/
-
-const numberFirst = Number(prompt("Digite um número: "));
-const numberSecond = Number(prompt("Digite um número: "));
-const operation = prompt("Escolha a operação (+, -, *, /): ");
-
-let result = 0;
-
-switch (operation) {
-  case "+":
-    result = numberFirst + numberSecond;
-    console.log(result);
-    break;
-
-  case "-":
-    result = numberFirst - numberSecond;
-    console.log(result);
-    break;
-
-  case "*":
-    result = numberFirst * numberSecond;
-    console.log(result);
-    break;
-
-  case "/":
-    if (numberSecond === 0) {
-      console.log("Não é possível dividir por zero.");
-    } else {
-      result = numberFirst / numberSecond;
-      console.log(result);
-    }
-    break;
-
-  default:
-    console.log("Operação inválida!");
-}
-
-/*
-8. Uma pizzaria cobra por tamanho e tipo de borda. Faça um programa que leia o
-tamanho da pizza (P, M ou G) e o tipo de borda (tradicional ou recheada) usando
-
-switch case. Os preços base são: P = R$ 25,00, M = R$ 35,00, G = R$ 45,00. A borda
-recheada acrescenta R$ 8,00 em qualquer tamanho. Exiba o valor total do pedido.
-*/
-
-const typePizza = prompt(
-  "Digite o tamanho da pizza (P, M ou G): ",
-).toUpperCase();
-const typeEdge = prompt(
-  "Digite o tipo de borda (tradicional ou recheada): ",
-).toLowerCase();
-
-let price = 0;
-
-switch (typePizza) {
-  case "P":
-    price = 25;
-    break;
-
-  case "M":
-    price = 35;
-    break;
-
-  case "G":
-    price = 45;
-    break;
-
-  default:
-    console.log("Tamanho inválido!");
-    process.exit();
-}
-
-if (typeEdge === "recheada") {
-  price += 8;
-} else if (typeEdge !== "tradicional") {
-  console.log("Tipo de borda inválido!");
-  process.exit();
-}
-
-console.log(`Valor total: R$ ${price.toFixed(2)}`);
-
-/*
-9. Crie um programa que leia o número do mês (1 a 12) e, usando switch case, exiba
-o nome do mês correspondente e quantos dias ele possui. Para fevereiro,
-pergunte ao usuário se o ano é bissexto e ajuste a quantidade de dias para 29
-caso seja.
-*/
-
-const numberMonth = Number(prompt("Digite o numero do mês: "));
-let bissexto = "";
-
-switch (numberMonth) {
-  case 1:
-    console.log("Janeiro, 31 dias");
-    break;
-  case 2:
-    bissexto = prompt("O ano é bissexto? (sim ou não) ").toLowerCase();
-    if (bissexto === "sim") {
-      console.log("Fevereiro, 29 dias");
-    } else if (bissexto === "não") {
-      console.log("Fevereiro, 28 dias");
-    } else {
-      console.log("Operação inválida!");
-    }
-    break;
-  case 3:
-    console.log("Março, 31 dias");
-    break;
-  case 4:
-    console.log("Abril, 30 dias");
-    break;
-  case 5:
-    console.log("Maio, 31 dias");
-    break;
-  case 6:
-    console.log("Junho, 30 dias");
-    break;
-  case 7:
-    console.log("Julho, 31 dias");
-    break;
-  case 8:
-    console.log("Agosto, 31 dias");
-    break;
-  case 9:
-    console.log("Setembro, 30 dias");
-    break;
-  case 10:
-    console.log("Outubro, 31 dias");
-    break;
-  case 11:
-    console.log("Novembro, 30 dias");
-    break;
-  case 12:
-    console.log("Dezembro, 31 dias");
-    break;
-
-  default:
-    console.log("Operação inválida!");
-
-    break;
-}
-
-/*
-10. Um estacionamento cobra por faixas de tempo. Faça um programa que leia
-quantas horas um veículo ficou estacionado e, usando switch case com
-intervalos, calcule o valor a pagar conforme a tabela: 1a hora = R$ 8,00; 2a hora =
-R$ 6,00; 3a hora = R$ 4,00; acima de 3 horas = R$ 4,00 pelas primeiras 3 horas mais
-R$ 2,00 por hora adicional. Exiba o tempo total e o valor cobrado.
-
-*/
-
-const hours = Number(prompt("Digite a quantidade de horas: "));
 let total = 0;
-switch (hours) {
-  case 1:
-    total = 8;
+products.forEach(({ name, price, qty }) => {
+  let totalStock = price * qty;
+  console.log(`${name} - Total: R$ ${totalStock.toFixed(2)}`);
+  total += price * qty;
+});
+console.log(`Estoque total: R$ ${total.toFixed(2)}`);
+
+/*
+9. Crie um array de objetos onde cada objeto representa um contato
+com nome, telefone e e-mail. Use forEach para listar todos os contatos
+formatados. Permita buscar um contato pelo nome usando for...of e exiba
+os dados encontrados ou uma mensagem de "não encontrado".*/
+
+const contacts = [
+  { name: "Lucas", phone: "33999195955", email: "lucas@gamail.com" },
+  { name: "Rafael", phone: "11999143811", email: "raf@gamail.com" },
+  { name: "Pietra", phone: "22999022231", email: "pi01@gamail.com" },
+  { name: "Leonardo", phone: "21999812131", email: "leo51@gamail.com" },
+  { name: "Julia", phone: "31999220011", email: "juju30a@gamail.com" },
+];
+
+contacts.forEach(({ name, phone, email }) => {
+  console.log(`Nome: ${name} - Telefone: ${phone} - E-mail: ${email}`);
+});
+
+const searchContact = prompt("Pesquisar contato: ")
+
+let found = false;
+
+for (const contact of contacts) {
+  if ((searchContact).toLowerCase() === (contact.name).toLowerCase()) {
+    console.log(
+      `Nome: ${contact.name} - Telefone: ${contact.phone} - E-mail: ${contact.email}`
+    );
+    found = true;
     break;
-  case 2:
-    total = 8 + 6;
-    break;
-  case 3:
-    total = 8 + 6 + 4;
-    break;
-  default:
-    if (hours > 3) {
-      total = 18 + (hours - 3) * 2;
-    } else {
-      console.log("Operação inválida!");
-    }
-    break;
+  }
 }
-console.log(`Tempo total: ${hours} hora(s)`);
-console.log(`Valor a pagar: R$ ${total.toFixed(2)}`);
+
+if (!found) {
+  console.log("Nenhum contato encontrado.");
+}
+
+
+
