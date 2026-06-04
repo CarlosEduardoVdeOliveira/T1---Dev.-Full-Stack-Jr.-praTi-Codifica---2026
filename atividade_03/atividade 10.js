@@ -24,7 +24,7 @@ class Stack {
 
 const history = new Stack();
 
-function visit(page) {
+function visitPage(page) {
   history.push(page);
   console.log(`Visitando: ${page}`);
   console.log(`Página atual: ${currentPage()}\n`);
@@ -46,12 +46,10 @@ function currentPage() {
   return history.peek() ?? "Nenhuma página";
 }
 
-// Simulação
-
-visit("Google");
-visit("YouTube");
-visit("GitHub");
-visit("Stack Overflow");
+visitPage("Google");
+visitPage("YouTube");
+visitPage("GitHub");
+visitPage("Stack Overflow");
 
 goBack();
 goBack();
