@@ -1,13 +1,13 @@
 /*
-12. Implemente uma lista ligada simples usando nós ({ valor, proximo }).
-Crie as funções adicionar(tarefa), remover(tarefa) e exibir() que 
-percorre todos os nós. Simule um gerenciador de tarefas: adicione 4 
-tarefas, remova uma pelo nome e exiba a lista antes e depois.*/
+12. Implemente uma lista ligada simples usando nós ({ valor, next }).
+Crie as funções adicionar(task), remover(task) e exibir() que 
+percorre todos os nós. Simule um gerenciador de tasks: adicione 4 
+tasks, remova uma pelo nome e exiba a lista antes e depois.*/
 
 class Node {
-  constructor(valor) {
-    this.valor = valor;
-    this.proximo = null;
+  constructor(value) {
+    this.value = value;
+    this.next = null;
   }
 }
 
@@ -17,69 +17,69 @@ class LinkedList {
     this.length = 0;
   }
 
-  adicionar(tarefa) {
-    const novoNo = new Node(tarefa);
+  adicionar(task) {
+    const newNode = new Node(task);
 
     if (!this.head) {
-      this.head = novoNo;
+      this.head = newNode;
     } else {
-      let atual = this.head;
+      let current = this.head;
 
-      while (atual.proximo) {
-        atual = atual.proximo;
+      while (current.next) {
+        current = current.next;
       }
 
-      atual.proximo = novoNo;
+      current.next = newNode;
     }
 
     this.length++;
   }
 
-  remover(tarefa) {
+  remover(task) {
     if (!this.head) return;
 
-    if (this.head.valor === tarefa) {
-      this.head = this.head.proximo;
+    if (this.head.valor === task) {
+      this.head = this.head.next;
       this.length--;
       return;
     }
 
-    let atual = this.head;
+    let current = this.head;
 
-    while (atual.proximo && atual.proximo.valor !== tarefa) {
-      atual = atual.proximo;
+    while (current.next && current.next.valor !== task) {
+      current = current.next;
     }
 
-    if (atual.proximo) {
-      atual.proximo = atual.proximo.proximo;
+    if (current.next) {
+      current.next = current.next.next;
       this.length--;
     }
   }
 
   exibir() {
-    let atual = this.head;
-    let resultado = "";
+    let current = this.head;
+    let result = "";
 
-    while (atual) {
-      resultado += atual.valor + " → ";
-      atual = atual.proximo;
+    while (current) {
+      result += current.value + " → ";
+      current = current.next;
     }
 
-    console.log(resultado + "null");
+    console.log(result + "null");
   }
 }
 
-const tarefas = new LinkedList();
+const tasks = new LinkedList();
 
-tarefas.adicionar("Estudar JavaScript");
-tarefas.adicionar("Fazer exercícios");
-tarefas.adicionar("Ler documentação");
-tarefas.adicionar("Enviar atividade");
+tasks.adicionar("Estudar JavaScript");
+tasks.adicionar("Fazer exercícios");
+tasks.adicionar("Ler documentação");
+tasks.adicionar("Enviar atividade");
 
 console.log("Lista antes da remoção:");
-tarefas.exibir();
+tasks.exibir();
 
-tarefas.remover("Ler documentação");
+tasks.remover("Ler documentação");
 
 console.log("\nLista depois da remoção:");
-tarefas.exibir();
+tasks.exibir();
