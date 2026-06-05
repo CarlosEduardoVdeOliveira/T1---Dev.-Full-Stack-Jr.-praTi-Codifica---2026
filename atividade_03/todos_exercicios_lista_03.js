@@ -55,17 +55,11 @@ const vegeta = {
 };
 
 for (const key in goku) {
-  console.log(
-    `${key}: Goku = ${goku[key]} | Vegeta = ${vegeta[key]}`
-  );
+  console.log(`${key}: Goku = ${goku[key]} | Vegeta = ${vegeta[key]}`);
 }
 
 function calculatePower(character) {
-  return (
-    character.life +
-    character.attack +
-    character.defense
-  );
+  return character.life + character.attack + character.defense;
 }
 
 const p1 = calculatePower(goku);
@@ -76,9 +70,7 @@ if (p1 > p2) {
 } else if (p2 > p1) {
   console.log(`${vegeta.name} é o mais forte!`);
 } else {
-  console.log(
-    `${goku.name} e ${vegeta.name} têm o mesmo poder!`
-  );
+  console.log(`${goku.name} e ${vegeta.name} têm o mesmo poder!`);
 }
 
 /*
@@ -119,7 +111,6 @@ escudo: 2 }). Use for...in para listar o inventário completo.
 Permita que o usuário informe um item para usar: reduza a quantidade
 em 1 ou exiba "item esgotado" se for zero.*/
 
-
 const inventario = {
   espada: 1,
   poção: 5,
@@ -139,7 +130,6 @@ if (inventario[item] === undefined) {
 } else {
   console.log(`${item}: Item esgotado!`);
 }
-
 
 /*
 5. Crie um objeto representando o orçamento mensal de uma pessoa, com
@@ -165,24 +155,24 @@ const budget = {
     planned: 200,
     spent: 150,
   },
-}
-let plannedTotal = 0 
-let spentTotal = 0
+};
+let plannedTotal = 0;
+let spentTotal = 0;
 
 for (const key in budget) {
-  let balanceMouth = budget[key].planned - budget[key].spent
-  if(budget[key].planned >= budget[key].spent){
+  let balanceMouth = budget[key].planned - budget[key].spent;
+  if (budget[key].planned >= budget[key].spent) {
     console.log(`${key}: Dentro do orçamento. Saldo: R$ ${balanceMouth}`);
-  }else{
+  } else {
     console.log(`${key}: Fora do orçamento.Saldo: R$ ${balanceMouth}`);
   }
-  plannedTotal += Number( budget[key].planned)
-  spentTotal += Number(budget[key].spent)
+  plannedTotal += Number(budget[key].planned);
+  spentTotal += Number(budget[key].spent);
 }
-let balance = Number(plannedTotal - spentTotal)
+let balance = Number(plannedTotal - spentTotal);
 if (balance >= 0) {
   console.log(`Dentro do orçamento do mês! Saldo: R$ ${balance.toFixed(2)}`);
-}else {
+} else {
   console.log(`Fora do orçamento do mês! Saldo: R$ ${balance.toFixed(2)}`);
 }
 
@@ -296,7 +286,6 @@ console.log(
   }`,
 );
 
-
 /*
 8. Crie um array de objetos representando produtos com nome, preço e
 quantidade. Use forEach para calcular o valor total em estoque de cada
@@ -357,14 +346,14 @@ contacts.forEach(({ name, phone, email }) => {
   console.log(`Nome: ${name} - Telefone: ${phone} - E-mail: ${email}`);
 });
 
-const searchContact = prompt("Pesquisar contato: ")
+const searchContact = prompt("Pesquisar contato: ");
 
 let found = false;
 
 for (const contact of contacts) {
-  if ((searchContact).toLowerCase() === (contact.name).toLowerCase()) {
+  if (searchContact.toLowerCase() === contact.name.toLowerCase()) {
     console.log(
-      `Nome: ${contact.name} - Telefone: ${contact.phone} - E-mail: ${contact.email}`
+      `Nome: ${contact.name} - Telefone: ${contact.phone} - E-mail: ${contact.email}`,
     );
     found = true;
     break;
@@ -375,5 +364,199 @@ if (!found) {
   console.log("Nenhum contato encontrado.");
 }
 
+/*
+10. Implemente uma pilha usando um array para simular o histórico de um
+navegador. Crie as funções visitar(pagina) (push), voltar() (pop) e 
+paginaAtual() (peek). Simule uma sessão: visite 4 páginas, volte 2
+vezes e exiba a página atual a cada operação.*/
 
+class Stack {
+  constructor() {
+    this.items = [];
+  }
+  push(value) {
+    this.items.push(value);
+  }
+  pop() {
+    return this.items.pop() ?? null;
+  }
+  peek() {
+    return this.items[this.items.length - 1] ?? null;
+  }
+  tamanho() {
+    return this.items.length;
+  }
+}
 
+const history = new Stack();
+
+function visitPage(page) {
+  history.push(page);
+  console.log(`Visitando: ${page}`);
+  console.log(`Página atual: ${currentPage()}\n`);
+}
+
+function goBack() {
+  const removed = history.pop();
+
+  if (removed) {
+    console.log(`Voltando da página: ${removed}`);
+  } else {
+    console.log("Nenhuma página para voltar.");
+  }
+
+  console.log(`Página atual: ${currentPage()}\n`);
+}
+
+function currentPage() {
+  return history.peek() ?? "Nenhuma página";
+}
+
+visitPage("Google");
+visitPage("YouTube");
+visitPage("GitHub");
+visitPage("Stack Overflow");
+
+goBack();
+goBack();
+
+/*
+11. Implemente uma fila usando um array para simular o atendimento de 
+uma clínica. Crie as funções chegarPaciente(nome) (enqueue), 
+chamarProximo() (dequeue) e exibirFila(). Simule a chegada de 5 
+pacientes e o atendimento de 3, exibindo o estado da fila a cada operação
+.*/
+
+class Queue {
+  constructor() {
+    this.items = [];
+  }
+
+  enqueue(nome) {
+    this.items.push(nome);
+  }
+
+  dequeue() {
+    return this.items.shift() ?? null;
+  }
+
+  exibirFila() {
+    console.log("Fila:", this.items);
+  }
+}
+
+const fila = new Queue();
+
+function chegarPaciente(nome) {
+  fila.enqueue(nome);
+  console.log(`${nome} chegou.`);
+  fila.exibirFila();
+}
+
+function chamarProximo() {
+  const paciente = fila.dequeue();
+
+  if (paciente) {
+    console.log(`Chamando: ${paciente}`);
+  } else {
+    console.log("Não há pacientes na fila.");
+  }
+
+  fila.exibirFila();
+}
+
+chegarPaciente("Douglas");
+chegarPaciente("Jean");
+chegarPaciente("Lucas");
+chegarPaciente("Daniela");
+chegarPaciente("Eduarda");
+
+chamarProximo();
+chamarProximo();
+chamarProximo();
+
+/*
+12. Implemente uma lista ligada simples usando nós ({ valor, proximo }).
+Crie as funções adicionar(tarefa), remover(tarefa) e exibir() que 
+percorre todos os nós. Simule um gerenciador de tarefas: adicione 4 
+tarefas, remova uma pelo nome e exiba a lista antes e depois.*/
+
+class Node {
+  constructor(valor) {
+    this.valor = valor;
+    this.proximo = null;
+  }
+}
+
+class LinkedList {
+  constructor() {
+    this.head = null;
+    this.length = 0;
+  }
+
+  adicionar(tarefa) {
+    const novoNo = new Node(tarefa);
+
+    if (!this.head) {
+      this.head = novoNo;
+    } else {
+      let atual = this.head;
+
+      while (atual.proximo) {
+        atual = atual.proximo;
+      }
+
+      atual.proximo = novoNo;
+    }
+
+    this.length++;
+  }
+
+  remover(tarefa) {
+    if (!this.head) return;
+
+    if (this.head.valor === tarefa) {
+      this.head = this.head.proximo;
+      this.length--;
+      return;
+    }
+
+    let atual = this.head;
+
+    while (atual.proximo && atual.proximo.valor !== tarefa) {
+      atual = atual.proximo;
+    }
+
+    if (atual.proximo) {
+      atual.proximo = atual.proximo.proximo;
+      this.length--;
+    }
+  }
+
+  exibir() {
+    let atual = this.head;
+    let resultado = "";
+
+    while (atual) {
+      resultado += atual.valor + " → ";
+      atual = atual.proximo;
+    }
+
+    console.log(resultado + "null");
+  }
+}
+
+const tarefas = new LinkedList();
+
+tarefas.adicionar("Estudar JavaScript");
+tarefas.adicionar("Fazer exercícios");
+tarefas.adicionar("Ler documentação");
+tarefas.adicionar("Enviar atividade");
+
+console.log("Lista antes da remoção:");
+tarefas.exibir();
+
+tarefas.remover("Ler documentação");
+
+console.log("\nLista depois da remoção:");
+tarefas.exibir();
