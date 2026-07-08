@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Teko:wght@300..700&display=swap");
 :root {
   /* Colors========================== */
+  --color-white: #ffffff;
   --color-black: #000000;
   --color-blue-500: #124c5f;
   --color-blue-200: #c7e7e1;
