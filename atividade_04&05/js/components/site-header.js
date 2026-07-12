@@ -8,13 +8,13 @@ class SiteHeader extends HTMLElement {
         <img class="logo" src="${imgSrc}" alt="Logo" />
         <site-button
           class="btn-hamburger"
-          bg-color="var(--color-blue-200)"
-          text-color="var(--color-blue-500)"
+          bg-color="var(--color-gray-100)"
+          text-color="var(--color-gray-500)"
           font-family="var(--font-family-teko)"
           content="<i class='fa-solid fa-bars'></i>"
         >
         </site-button>
-        <div class="content__header active">
+        <div class="content__header">
           <nav class="content__header-nav">
             <ul class="content__header-nav-ul">
               <li><a class="content__header-link" href="#">Nossos Serviços</a></li>
@@ -52,6 +52,7 @@ class SiteHeader extends HTMLElement {
         menuButton.style.right = "30%"
       }else{
         menuButton.style.right = "0"
+        menuButton.style.transition = "right 0.3s ease-in"
       }
     });
   }
