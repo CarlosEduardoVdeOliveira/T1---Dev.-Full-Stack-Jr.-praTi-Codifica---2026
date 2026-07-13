@@ -53,6 +53,7 @@
   --height-sm: 32px;
   --height-md: 48px;
   --height-lg: 64px;
+  --height-full: 100%;
   /*Z-index=======================*/
   --z-index-header: 100;
   --z-index-modal: 1000;

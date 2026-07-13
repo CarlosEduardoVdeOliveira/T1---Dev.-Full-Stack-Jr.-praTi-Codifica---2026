@@ -133,6 +133,9 @@ html {
     font-size: 87.5%;
   }
 }
+.container{
+  height: var(--height-full);
+}
 ol,
 ul {
   list-style: none;
