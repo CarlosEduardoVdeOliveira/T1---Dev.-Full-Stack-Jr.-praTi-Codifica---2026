@@ -1,0 +1,13 @@
+.link {
+  color: var(--color-black);
+  font-weight: var(--font-weight-bold);
+  font-size: 12px;
+  text-transform: uppercase;
+  transition: all var(--transition-fast);
+}
+
+.link:hover {
+  color: var(--color-blue-500);
+  text-decoration: underline;
+  text-decoration-color: var(--color-blue-500);
+}

@@ -17,11 +17,11 @@ class SiteHeader extends HTMLElement {
         <div class="content__header">
           <nav class="content__header-nav">
             <ul class="content__header-nav-ul">
-              <li><a class="content__header-link" href="#">Nossos Serviços</a></li>
-              <li><a class="content__header-link" href="#">Sobre Nós</a></li>
-              <li><a class="content__header-link" href="#">Produtos</a></li>
-              <li><a class="content__header-link" href="#">Cuidados com Pets</a></li>
-              <li><a class="content__header-link" href="#">Contato</a></li>
+              <li><a class="link" href="#">Nossos Serviços</a></li>
+              <li><a class="link" href="#">Sobre Nós</a></li>
+              <li><a class="link" href="#">Produtos</a></li>
+              <li><a class="link" href="#">Cuidados com Pets</a></li>
+              <li><a class="link" href="#">Contato</a></li>
             </ul>
           </nav>
 
