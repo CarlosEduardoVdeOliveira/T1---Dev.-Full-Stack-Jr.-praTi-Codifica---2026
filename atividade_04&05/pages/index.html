@@ -10,6 +10,14 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+
     <link rel="stylesheet" href="../css/main.css" />
     <script type="module" src="../js/components/site-header.js" defer></script>
     <script type="module" src="../js/components/site-button.js" defer></script>
@@ -18,7 +26,157 @@
   </head>
   <body>
     <site-header imgSrc="../assets/logo.svg"></site-header>
-    <main class="container"></main>
+    <main class="container">
+      <section class="container__section section__hero">
+        <div class="section__left hero__left">
+          <h3 class="hero__left-title">Taking care for your Smart Dog !</h3>
+          <p class="hero__left-paragraph">
+            Human–canine bonding is the relationship between dogs and humans.
+          </p>
+          <site-button
+            class="hero__left-button"
+            bg-color="var(--color-blue-500)"
+            text-color="var(--color-white)"
+            font-family="var(--font-family-teko)"
+            content="Explore More <i class='fa-solid fa-angle-right'></i>"
+            btn-padding="12px"
+          ></site-button>
+        </div>
+        <div class="section__right">
+          <img
+            class="hero__image"
+            src="../assets/hero.png"
+            alt="hero image dog"
+          />
+        </div>
+      </section>
+
+      <!-- slide -->
+      <div class="glide services">
+        <h3 class="services__title">Services Category</h3>
+        <div class="glide__track" data-glide-el="track">
+          <ul class="glide__slides">
+            <li class="glide__slide">
+              <img src="../assets/grooming.svg" />
+              <span>Grooming</span>
+            </li>
+            <li class="glide__slide">
+              <img src="../assets/healthcare.svg" />
+              <span>Healthcare</span>
+            </li>
+            <li class="glide__slide">
+              <img src="../assets/daycare.svg" />
+              <span>Daycare</span>
+            </li>
+            <li class="glide__slide">
+              <img src="../assets/training.svg" />
+              <span>Training</span>
+            </li>
+            <li class="glide__slide">
+              <img src="../assets/hyginic-care.svg" />
+              <span>Hyginic care</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="glide__arrows" data-glide-el="controls">
+          <button class="btn-arrows" data-glide-dir="<">◀</button>
+          <button class="btn-arrows" data-glide-dir=">">▶</button>
+        </div>
+      </div>
+
+      <section class="container__section">
+        <div class="section__left">
+          <img
+            class="hero__image"
+            src="../assets/left-img.png"
+            alt="hero image dog"
+          />
+        </div>
+        <div class="section__right hero__left">
+          <h3 class="hero__left-title">
+            Dogs do speak, but only to those who know how to listen.
+          </h3>
+          <p class="hero__left-paragraph">
+            Sweet roll ice cream powder candy canes ice cream donut pudding
+            biscuit ice cream. Cupcake tootsie roll sugar plum danish pudding
+            fruitcake cheesecake jelly-o. Pie muffin topping cake. Pudding
+            biscuit caramels topb
+          </p>
+          <site-button
+            class="hero__left-button"
+            bg-color="var(--color-blue-500)"
+            text-color="var(--color-white)"
+            font-family="var(--font-family-teko)"
+            content="Explore More <i class='fa-solid fa-angle-right'></i>"
+            btn-padding="12px"
+          ></site-button>
+        </div>
+      </section>
+
+      <!-- slide -->
+      <div class="glide products">
+        <h3 class="products__title">Dog Nutrients & Food</h3>
+        <div class="glide__track" data-glide-el="track">
+          <ul class="glide__slides">
+            <li class="glide__slide"><img src="../assets/racao-01.png" /></li>
+            <li class="glide__slide"><img src="../assets/racao-02.png" /></li>
+            <li class="glide__slide"><img src="../assets/racao-03.png" /></li>
+          </ul>
+        </div>
+
+        <div class="glide__arrows" data-glide-el="controls">
+          <button class="btn-arrows" data-glide-dir="<">◀</button>
+          <button class="btn-arrows" data-glide-dir=">">▶</button>
+        </div>
+      </div>
+
+      <section class="container__section">
+        <div class="section__left hero__left">
+          <h3 class="hero__left-title">
+            No one appreciates the very special genius of your conversation as
+            the dog does.
+          </h3>
+          <p class="hero__left-paragraph">
+            Sweet roll ice cream powder candy canes ice cream donut pudding
+            biscuit ice cream.biscuit caramels top
+          </p>
+          <site-button
+            class="hero__left-button"
+            bg-color="var(--color-blue-500)"
+            text-color="var(--color-white)"
+            font-family="var(--font-family-teko)"
+            content="Explore More <i class='fa-solid fa-angle-right'></i>"
+            btn-padding="12px"
+          ></site-button>
+        </div>
+        <div class="section__right">
+          <img
+            class="hero__image"
+            src="../assets/rigth-img.png"
+            alt="hero image dog"
+          />
+        </div>
+      </section>
+      <!-- slide -->
+      <div class="glide testimonials">
+        <h3 class="testimonials__title">Happy Customer</h3>
+
+        <div class="glide__track" data-glide-el="track">
+          <ul class="glide__slides">
+            <li class="glide__slide"><img src="../assets/avatar-01.png" /></li>
+            <li class="glide__slide"><img src="../assets/avatar-02.png" /></li>
+            <li class="glide__slide"><img src="../assets/avatar-03.png" /></li>
+          </ul>
+        </div>
+
+        <div class="glide__arrows" data-glide-el="controls">
+          <button class="btn-arrows" data-glide-dir="<">◀</button>
+          <button class="btn-arrows" data-glide-dir=">">▶</button>
+        </div>
+      </div>
+    </main>
     <site-footer></site-footer>
+    <script src="../js/slider.js"></script>
   </body>
 </html>

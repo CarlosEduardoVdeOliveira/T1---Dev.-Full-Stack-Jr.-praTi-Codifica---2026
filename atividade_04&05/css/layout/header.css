@@ -30,6 +30,9 @@
 .btn-hamburger {
   display: none;
 }
+.content__header-btn{
+  padding: var(--spacing-xs) var(--spacing-md);
+}
 .content__header.active {
   display: flex;
   right: 0%;

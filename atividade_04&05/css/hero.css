@@ -1,0 +1,32 @@
+.section__hero {
+  background-image: url("../assets/hero_shape.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero__image {
+  width: 400px;
+}
+
+.hero__left {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  max-width: 500px;
+  gap: 8px;
+}
+
+.hero__left-title {
+  font-size: 44px;
+  font-weight: var(--font-weight-bold);
+}
+.hero__left-paragraph {
+  font-family: var(--font-family-roboto);
+  font-size: 19px;
+}
+.hero__left-button {
+  font-size: 16px;
+  margin-top: 32px;
+}

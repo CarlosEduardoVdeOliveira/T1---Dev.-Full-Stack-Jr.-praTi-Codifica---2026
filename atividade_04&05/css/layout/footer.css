@@ -1,6 +1,6 @@
 .container__footer {
   width: var(--width-full-dvw);
-  border-top: 1px solid var(--color-gray-100);
+  border-top: 1px solid var(--color-gray-200);
   display: flex;
   align-items: center;
   justify-content: space-evenly;
