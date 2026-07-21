@@ -62,6 +62,61 @@
   display: none;
 }
 
+.products__header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.products__header-title{
+  font-size: var(--size-xl);
+  font-weight: var(--font-weight-bold);
+}
+
+.btn-buy{
+  border: 1px solid var(--color-blue-500);
+  border-radius: 5px;
+}
+
+.glide__slide.products__glide{
+  height: 450px;
+  padding: var(--spacing-md);
+  
+}
+.products__content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  
+}
+.racao{
+  background-position: bottom center;
+  background-repeat: no-repeat;
+}
+.racao-01{
+  background-image: url("../assets/racao-shape-01.svg");
+  
+}
+.racao-02{
+  background-image: url("../assets/racao-shape-02.svg");  
+}
+.racao-03{
+  background-image: url("../assets/racao-shape-03.svg");
+}
+.products__glide-image{
+  top: 0;
+  width: 150px;
+}
+.products__glide-title{
+  text-align: left;
+  font-size: var(--size-lg);
+  font-weight: var(--font-weight-bold);
+}
+.products__glide-details{
+  color: var(--color-gray-300);
+}
+
 @media (max-width: 600px) {
   .btn-arrows {
     display: block;
