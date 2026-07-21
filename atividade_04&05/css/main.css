@@ -1,0 +1,11 @@
+@import url("./base/reset.css");
+@import url("./base/variables.css");
+
+@import url("./layout/header.css");
+@import url("./layout/footer.css");
+@import url("./components/button.css");
+@import url("./components/link.css");
+@import url("./components/grid-section.css");
+@import url("./hero.css");
+@import url("./slider.css");
+
