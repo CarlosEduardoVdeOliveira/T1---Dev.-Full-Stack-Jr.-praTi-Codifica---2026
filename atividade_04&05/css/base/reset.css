@@ -90,7 +90,6 @@ video {
   text-decoration: none;
   box-sizing: border-box;
 }
-/* HTML5 display-role reset for older browsers */
 article,
 aside,
 details,
@@ -115,7 +114,7 @@ body {
   background: var(--color-white);
   line-height: var(--line-height-md);
   letter-spacing: 1.8px;
-  max-width: 1100px;
+  max-width: 1200px;
   width: 100%;
   overflow-x: hidden;
   margin: 0 auto;
@@ -123,17 +122,8 @@ body {
 }
 html,
 body {
-  /* height: 100%; */
 }
-html {
-  @media (max-width: 1080px) {
-    font-size: 93.75%;
-  }
-  @media (max-width: 720px) {
-    font-size: 87.5%;
-  }
-}
-.container{
+.container {
   height: var(--height-full);
 }
 ol,
@@ -157,4 +147,32 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+/* ===========================
+   RESPONSIVIDADE GLOBAL
+   =========================== */
+
+/* Tablet */
+@media (max-width: 1080px) {
+  html {
+    font-size: 93.75%;
+  }
+}
+
+/* Mobile grande */
+@media (max-width: 720px) {
+  html {
+    font-size: 87.5%;
+  }
+}
+
+/* Mobile pequeno */
+@media (max-width: 480px) {
+  html {
+    font-size: 80%;
+  }
+  body {
+    padding: 0 8px;
+  }
 }

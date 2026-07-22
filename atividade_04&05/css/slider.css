@@ -1,5 +1,6 @@
 .glide {
-  width: 1000px;
+  width: 100%;
+  max-width: 1000px;
   margin: 40px auto;
 }
 
@@ -14,7 +15,8 @@
   flex-direction: column;
   font-weight: var(--font-weight-light);
   border-radius: 10px;
-  font-size: --size-md;
+  font-size: var(--size-md);
+  overflow: hidden;
 }
 .services__title,
 .products__title,
@@ -62,63 +64,90 @@
   display: none;
 }
 
-.products__header{
+.products__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 16px;
 }
-.products__header-title{
+.products__header-title {
   font-size: var(--size-xl);
   font-weight: var(--font-weight-bold);
 }
 
-.btn-buy{
+.btn-buy {
   border: 1px solid var(--color-blue-500);
   border-radius: 5px;
 }
 
-.glide__slide.products__glide{
+.glide__slide.products__glide {
   height: 450px;
   padding: var(--spacing-md);
-  
 }
-.products__content{
+.products__content {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  
 }
-.racao{
+.racao {
   background-position: bottom center;
   background-repeat: no-repeat;
 }
-.racao-01{
+.racao-01 {
   background-image: url("../assets/racao-shape-01.svg");
-  
 }
-.racao-02{
-  background-image: url("../assets/racao-shape-02.svg");  
+.racao-02 {
+  background-image: url("../assets/racao-shape-02.svg");
 }
-.racao-03{
+.racao-03 {
   background-image: url("../assets/racao-shape-03.svg");
 }
-.products__glide-image{
+.products__glide-image {
   top: 0;
   width: 150px;
+  max-width: 100%;
 }
-.products__glide-title{
+.products__glide-title {
   text-align: left;
   font-size: var(--size-lg);
   font-weight: var(--font-weight-bold);
 }
-.products__glide-details{
+.products__glide-details {
   color: var(--color-gray-300);
+}
+
+@media (max-width: 768px) {
+  .glide {
+    margin: 20px auto;
+  }
+  .products__glide-details {
+    font-size: var(--size-sm);
+  }
 }
 
 @media (max-width: 600px) {
   .btn-arrows {
     display: block;
+  }
+  .products__header {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    align-items: flex-start;
+  }
+  .products__header-title {
+    font-size: var(--size-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .glide__slide {
+    height: 160px;
+  }
+  .glide__slide.products__glide {
+    height: 380px;
+  }
+  .products__glide-image {
+    width: 100px;
   }
 }

@@ -1,11 +1,12 @@
-
 class SiteHeader extends HTMLElement {
   connectedCallback() {
     const imgSrc = this.getAttribute("imgSrc") || "";
 
     this.innerHTML = `
       <header class="container__header">
-        <img class="logo" src="${imgSrc}" alt="Logo" />
+        <a href="../../pages/index.html">
+          <img class="logo" src="${imgSrc}" alt="Logo" />
+        </a>
         <site-button
           class="btn-hamburger"
           bg-color="var(--color-gray-100)"
@@ -17,11 +18,11 @@ class SiteHeader extends HTMLElement {
         <div class="content__header">
           <nav class="content__header-nav">
             <ul class="content__header-nav-ul">
-              <li><a class="link" href="#">Nossos Serviços</a></li>
-              <li><a class="link" href="#">Sobre Nós</a></li>
-              <li><a class="link" href="#">Produtos</a></li>
-              <li><a class="link" href="#">Cuidados com Pets</a></li>
-              <li><a class="link" href="#">Contato</a></li>
+              <li><a class="link" href="servicos.html">Nossos Serviços</a></li>
+              <li><a class="link" href="sobre.html">Sobre Nós</a></li>
+              <li><a class="link" href="produtos.html">Produtos</a></li>
+              <li><a class="link" href="cuidados.html">Cuidados com Pets</a></li>
+              <li><a class="link" href="contato.html">Contato</a></li>
             </ul>
           </nav>
 
@@ -48,12 +49,6 @@ class SiteHeader extends HTMLElement {
 
     menuButton.addEventListener("click", () => {
       menu.classList.toggle("active");
-      if(menu.classList.contains("active")){
-        menuButton.style.right = "30%"
-      }else{
-        menuButton.style.right = "0"
-        menuButton.style.transition = "right 0.3s ease-in"
-      }
     });
   }
 }

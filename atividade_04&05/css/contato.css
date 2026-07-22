@@ -1,0 +1,208 @@
+.contato__section {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--spacing-2xl);
+  padding: var(--spacing-2xl) 0;
+  align-items: start;
+}
+
+.contato__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.contato__title {
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-blue-500);
+}
+
+.contato__description {
+  font-family: var(--font-family-roboto);
+  font-size: var(--size-md);
+  color: var(--color-gray-500);
+  line-height: var(--line-height-lg);
+}
+
+.contato__details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.contato__detail-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  font-family: var(--font-family-roboto);
+  color: var(--color-gray-400);
+}
+
+.contato__detail-item i {
+  color: var(--color-blue-500);
+  font-size: var(--size-lg);
+  width: 24px;
+  text-align: center;
+}
+
+/* Form */
+.contato__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  background: var(--color-white);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-gray-100);
+  box-shadow: var(--shadow-sm);
+}
+
+.contato__form-title {
+  font-size: var(--size-xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-sm);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-group label {
+  font-family: var(--font-family-rubik);
+  font-size: var(--size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-gray-500);
+}
+
+.form-group input,
+.form-group textarea {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  font-family: var(--font-family-roboto);
+  font-size: var(--size-md);
+  color: var(--color-black);
+  transition: border-color var(--transition-fast);
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--color-blue-400);
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.15);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--color-gray-300);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+}
+
+.cep__wrapper {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.cep__wrapper input {
+  flex: 1;
+}
+
+.btn-buscar-cep {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--color-blue-500);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: var(--font-family-teko);
+  font-size: var(--size-md);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity var(--transition-fast);
+}
+
+.btn-buscar-cep:hover {
+  opacity: var(--opacity-high);
+}
+
+.btn-buscar-cep:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.cep__status {
+  font-size: var(--size-xs);
+  margin-top: 4px;
+  min-height: 16px;
+}
+
+.cep__status.success {
+  color: var(--color-green-500);
+}
+
+.cep__status.error {
+  color: #e74c3c;
+}
+
+.form-mensagem {
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  font-family: var(--font-family-roboto);
+  text-align: center;
+  display: none;
+}
+
+.form-mensagem.show {
+  display: block;
+}
+
+.form-mensagem.success {
+  background: rgba(29, 191, 115, 0.1);
+  color: var(--color-green-500);
+  border: 1px solid var(--color-green-500);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .contato__section {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-lg) 0;
+  }
+
+  .contato__info {
+    text-align: center;
+  }
+
+  .contato__details {
+    align-items: center;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .contato__form {
+    padding: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .contato__form {
+    padding: var(--spacing-md);
+  }
+}
