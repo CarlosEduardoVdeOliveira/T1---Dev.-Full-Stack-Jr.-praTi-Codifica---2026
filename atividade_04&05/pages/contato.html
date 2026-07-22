@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/contato.css" />
+    <script type="module" src="../js/components/site-header.js" defer></script>
+    <script type="module" src="../js/components/site-button.js" defer></script>
+    <script type="module" src="../js/components/site-footer.js" defer></script>
+    <title>Contato - PetCare</title>
+  </head>
+  <body>
+    <site-header imgSrc="../assets/logo.svg"></site-header>
+    <main class="container">
+      <section class="contato__section">
+        <div class="contato__info">
+          <h2 class="contato__title">Entre em Contato</h2>
+          <p class="contato__description">
+            Estamos aqui para ajudar você e seu pet. Preencha o formulário ao
+            lado e nossa equipe entrará em contato com você o mais rápido
+            possível. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+          <div class="contato__details">
+            <div class="contato__detail-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Rua dos Animais, 123 - Centro</span>
+            </div>
+            <div class="contato__detail-item">
+              <i class="fa-solid fa-phone"></i>
+              <span>(11) 99999-9999</span>
+            </div>
+            <div class="contato__detail-item">
+              <i class="fa-solid fa-envelope"></i>
+              <span>contato@petcare.com.br</span>
+            </div>
+          </div>
+        </div>
+
+        <form class="contato__form" id="contatoForm">
+          <h3 class="contato__form-title">Envie sua mensagem</h3>
+
+          <div class="form-group">
+            <label for="nome">Nome completo *</label>
+            <input
+              type="text"
+              id="nome"
+              name="nome"
+              placeholder="Seu nome completo"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-mail *</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="seu@email.com"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="telefone">Telefone *</label>
+            <input
+              type="tel"
+              id="telefone"
+              name="telefone"
+              placeholder="(00) 00000-0000"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="cep">CEP *</label>
+            <div class="cep__wrapper">
+              <input
+                type="text"
+                id="cep"
+                name="cep"
+                placeholder="00000-000"
+                maxlength="9"
+                required
+              />
+              <button type="button" id="buscarCep" class="btn-buscar-cep">
+                Buscar
+              </button>
+            </div>
+            <span class="cep__status" id="cepStatus"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="rua">Rua</label>
+            <input type="text" id="rua" name="rua" readonly />
+          </div>
+
+          <div class="form-group">
+            <label for="bairro">Bairro</label>
+            <input type="text" id="bairro" name="bairro" readonly />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cidade">Cidade</label>
+              <input type="text" id="cidade" name="cidade" readonly />
+            </div>
+            <div class="form-group">
+              <label for="estado">Estado</label>
+              <input type="text" id="estado" name="estado" readonly />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="mensagem">Mensagem *</label>
+            <textarea
+              id="mensagem"
+              name="mensagem"
+              rows="4"
+              placeholder="Como podemos ajudar?"
+              required
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <site-button
+              bg-color="var(--color-blue-500)"
+              text-color="var(--color-white)"
+              font-family="var(--font-family-teko)"
+              content="Enviar Mensagem"
+              btn-padding="14px 32px"
+            ></site-button>
+          </div>
+
+          <div id="formMensagem" class="form-mensagem"></div>
+        </form>
+      </section>
+    </main>
+    <site-footer></site-footer>
+    <script src="../js/contato.js"></script>
+  </body>
+</html>
