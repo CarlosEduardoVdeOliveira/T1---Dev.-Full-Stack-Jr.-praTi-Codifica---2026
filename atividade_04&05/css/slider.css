@@ -1,6 +1,6 @@
 .glide {
   width: 100%;
-  max-width: 1000px;
+  max-width: 100%;
   margin: 40px auto;
 }
 
@@ -18,6 +18,11 @@
   font-size: var(--size-md);
   overflow: hidden;
 }
+.glide__slide img {
+  max-width: 80px;
+  height: auto;
+}
+
 .services__title,
 .products__title,
 .testimonials__title {
@@ -51,7 +56,6 @@
   margin-top: 20px;
   display: flex;
   justify-content: center;
-
   gap: 10px;
 }
 
@@ -69,6 +73,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 16px;
+  flex-wrap: wrap;
 }
 .products__header-title {
   font-size: var(--size-xl);
@@ -83,6 +88,11 @@
 .glide__slide.products__glide {
   height: 450px;
   padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
 }
 .products__content {
   display: flex;
@@ -107,6 +117,7 @@
   top: 0;
   width: 150px;
   max-width: 100%;
+  height: auto;
 }
 .products__glide-title {
   text-align: left;
@@ -115,17 +126,25 @@
 }
 .products__glide-details {
   color: var(--color-gray-300);
+  font-size: var(--size-sm);
 }
 
+/* ========== RESPONSIVIDADE SLIDERS ========== */
+
+/* Tablet */
 @media (max-width: 768px) {
   .glide {
     margin: 20px auto;
   }
   .products__glide-details {
-    font-size: var(--size-sm);
+    font-size: var(--size-xs);
+  }
+  .glide__slide {
+    height: 180px;
   }
 }
 
+/* Mobile grande */
 @media (max-width: 600px) {
   .btn-arrows {
     display: block;
@@ -138,16 +157,26 @@
   .products__header-title {
     font-size: var(--size-lg);
   }
-}
-
-@media (max-width: 480px) {
   .glide__slide {
     height: 160px;
   }
+}
+
+/* Mobile pequeno */
+@media (max-width: 480px) {
+  .glide {
+    margin: 16px auto;
+  }
+  .glide__slide {
+    height: 150px;
+  }
   .glide__slide.products__glide {
-    height: 380px;
+    height: 350px;
   }
   .products__glide-image {
     width: 100px;
+  }
+  .products__glide-title {
+    font-size: var(--size-md);
   }
 }

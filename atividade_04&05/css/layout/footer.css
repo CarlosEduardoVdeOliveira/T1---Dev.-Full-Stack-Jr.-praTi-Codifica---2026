@@ -6,6 +6,9 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
   gap: var(--spacing-md);
+  padding: var(--spacing-lg) var(--spacing-md);
+  max-width: 1200px;
+  margin: 0 auto;
 }
 .footer__paragraph {
   color: var(--color-gray-300);
@@ -31,6 +34,10 @@
   .container__footer {
     flex-direction: column;
     text-align: center;
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+  .content__footer {
+    padding: var(--spacing-sm);
   }
 }
 
