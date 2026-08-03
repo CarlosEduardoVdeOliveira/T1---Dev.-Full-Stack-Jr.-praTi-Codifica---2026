@@ -105,8 +105,8 @@ section {
 }
 body {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: stretch;
+  justify-content: center;
   flex-direction: column;
   font-family: var(--font-family-teko);
   font-size: var(--size-md);
@@ -114,17 +114,18 @@ body {
   background: var(--color-white);
   line-height: var(--line-height-md);
   letter-spacing: 1.8px;
-  max-width: 1200px;
   width: 100%;
   overflow-x: hidden;
-  margin: 0 auto;
-  padding: 0 16px;
+  min-height: 100vh;
 }
 html,
 body {
 }
 .container {
-  height: var(--height-full);
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
 }
 ol,
 ul {
@@ -165,6 +166,9 @@ table {
   html {
     font-size: 87.5%;
   }
+  .container {
+    padding: 0 12px;
+  }
 }
 
 /* Mobile pequeno */
@@ -172,7 +176,7 @@ table {
   html {
     font-size: 80%;
   }
-  body {
+  .container {
     padding: 0 8px;
   }
 }

@@ -12,17 +12,25 @@ if (window.innerWidth < 600) {
 }
 
 new Glide(".services", {
-  perView: getPerView({ 480: 1, 768: 2, 1024: 3, 9999: 5 }),
+  type: "carousel",
+  perView: getPerView({ 480: 2, 768: 3, 1024: 4, 9999: 5 }),
   autoplay: autoPlay,
   gap: 16,
+  bound: true,
 }).mount();
 
 new Glide(".products", {
+  type: "carousel",
   perView: getPerView({ 480: 1, 768: 2, 1024: 2, 9999: 3 }),
   autoplay: autoPlay,
+  gap: 16,
+  bound: true,
 }).mount();
 
 new Glide(".testimonials", {
-  perView: getPerView({ 480: 1, 768: 1, 9999: 3 }),
+  type: "carousel",
+  perView: getPerView({ 480: 1, 768: 2, 1024: 2, 9999: 3 }),
   autoplay: autoPlay,
+  gap: 16,
+  bound: true,
 }).mount();
